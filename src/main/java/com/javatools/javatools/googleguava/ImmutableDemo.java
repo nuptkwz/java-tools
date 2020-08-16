@@ -1,9 +1,9 @@
 package com.javatools.javatools.googleguava;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSortedMap;
+import com.google.common.base.Joiner;
+import com.google.common.collect.*;
+
+import java.util.Map;
 
 /**
  * Description Immutable类特点
@@ -16,7 +16,34 @@ import com.google.common.collect.ImmutableSortedMap;
 public class ImmutableDemo {
 
     public static void main(String[] args) {
-        testImmutable();
+//        testImmutable();
+//        testGuavaMap();
+//        testGuavaJoiner();
+        testWithKeyValueSeparator();
+    }
+
+    private static void testWithKeyValueSeparator() {
+        Map<String, String> testMap = Maps.newLinkedHashMap();
+        testMap.put("Cookies", "12332");
+        testMap.put("Content-Length", "30000");
+        testMap.put("Date", "2018.07.04");
+        testMap.put("Mime", "text/html");
+        // 用:分割键值对，并用#分割每个元素，返回字符串
+        String returnedString = Joiner.on("#").withKeyValueSeparator(":").join(testMap);
+        System.out.println(returnedString);
+    }
+
+    /**
+     * 字符串连接器Joiner
+     * Description
+     * Param []
+     * return void
+     */
+    private static void testGuavaJoiner() {
+        StringBuilder stringBuilder = new StringBuilder("hello,");
+        Joiner joiner = Joiner.on("|").skipNulls();
+        StringBuilder newStringBuffer = joiner.appendTo(stringBuilder, "hello", "my", "name is", null, "Mike");
+        System.out.println(newStringBuffer);
     }
 
     /**
@@ -33,5 +60,30 @@ public class ImmutableDemo {
         System.out.println("iSet: " + iSet.toString());
         System.out.println("iMap: " + iMap.toString());
         System.out.println("iSortedMap" + iSortedMap.toString());
+    }
+
+    /**
+     * Description
+     * Param []
+     * return void
+     */
+    private static void testGuavaMap() {
+        //ArrayListMultimap
+        Multimap<String, Integer> arrayListMultimap = ArrayListMultimap.create();
+        arrayListMultimap.put("test", 1);
+        arrayListMultimap.put("test", 3);
+        arrayListMultimap.put("test", 2);
+        arrayListMultimap.put("test2", 1);
+        arrayListMultimap.put("test2", 3);
+        arrayListMultimap.put("test2", 3);
+        System.out.println(arrayListMultimap.toString());
+
+        //按照原来的顺序
+        LinkedListMultimap<String, Integer> linkedListMultimap = LinkedListMultimap.create();
+        linkedListMultimap.put("test2", 3);
+        linkedListMultimap.put("test2", 2);
+        linkedListMultimap.put("test1", 1);
+        linkedListMultimap.put("test5", 1);
+        System.out.println(linkedListMultimap.toString());
     }
 }
