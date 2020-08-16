@@ -1,9 +1,7 @@
-package com.javatools.javatools.googleguava;
+package com.javatools.javatools.googleguava.collections;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.*;
-
-import java.util.Map;
 
 /**
  * Description Immutable类特点
@@ -19,19 +17,8 @@ public class ImmutableDemo {
 //        testImmutable();
 //        testGuavaMap();
 //        testGuavaJoiner();
-        testWithKeyValueSeparator();
     }
 
-    private static void testWithKeyValueSeparator() {
-        Map<String, String> testMap = Maps.newLinkedHashMap();
-        testMap.put("Cookies", "12332");
-        testMap.put("Content-Length", "30000");
-        testMap.put("Date", "2018.07.04");
-        testMap.put("Mime", "text/html");
-        // 用:分割键值对，并用#分割每个元素，返回字符串
-        String returnedString = Joiner.on("#").withKeyValueSeparator(":").join(testMap);
-        System.out.println(returnedString);
-    }
 
     /**
      * 字符串连接器Joiner
