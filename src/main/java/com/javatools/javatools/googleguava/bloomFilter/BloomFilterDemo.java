@@ -35,5 +35,8 @@ public class BloomFilterDemo {
     public static void main(String[] args) {
         BloomFilterDemo bloomFilterDemo = new BloomFilterDemo();
         bloomFilterDemo.fun();
+
+        ThreadLocal threadLocal = new ThreadLocal();
+        threadLocal.get();
     }
 }
