@@ -14,7 +14,6 @@ import java.util.Set;
 public class MultisetDemo {
 
     public static void main(String[] args) {
-        //create a multiset collection
         Multiset<String> multiset = HashMultiset.create();
         multiset.add("a");
         multiset.add("b");
@@ -30,9 +29,7 @@ public class MultisetDemo {
         System.out.println("Total Size : " + multiset.size());
         Set<String> set = multiset.elementSet();
         System.out.println("Set [");
-        for (String s : set) {
-            System.out.println(s);
-        }
+        System.out.println(set);
         System.out.println("]");
         Iterator<String> iterator = multiset.iterator();
         System.out.println("MultiSet [");
@@ -46,6 +43,6 @@ public class MultisetDemo {
         }
         System.out.println("]");
         multiset.remove("b", 2);
-        System.out.println("Occurence of 'b' : " + multiset.count("b"));//原文出自【易百教程】，商业转载请联系作者获得授权，非商业请保留原文链接：https://www.yiibai.com/guava/guava_multiset.html
+        System.out.println("Occurence of 'b' : " + multiset.count("b"));
     }
 }
