@@ -43,6 +43,6 @@ public class MultisetDemo {
         }
         System.out.println("]");
         multiset.remove("b", 2);
-        System.out.println("Occurence of 'b' : " + multiset.count("b"));
+        System.out.println("Occurrence of 'b' : " + multiset.count("b"));
     }
 }
