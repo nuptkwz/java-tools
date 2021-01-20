@@ -4,6 +4,10 @@ import lombok.Data;
 
 /**
  * Description
+ * 泛型中的通配符分为<?>、<? extends T>、<? super T>。其中
+ * <?> 代表无界通配符
+ * <? extends T> 代表上界通配符，表示T以及T的子类，即T是“最大的”
+ * <? super T> 代表下界通配符，表示T以及T的父类，T是“最小的”。
  * Date 2021/1/20 20:17
  * Created by kwz
  */
