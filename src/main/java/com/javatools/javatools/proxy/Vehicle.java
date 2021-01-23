@@ -7,5 +7,5 @@ package com.javatools.javatools.proxy;
  */
 public interface Vehicle {
 
-    void running();
+    public void running();
 }
