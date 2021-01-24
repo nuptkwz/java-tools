@@ -1,4 +1,7 @@
-package com.javatools.javatools.proxy;
+package com.javatools.javatools.proxy.jdkproxy;
+
+import com.javatools.javatools.proxy.Taxi;
+import com.javatools.javatools.proxy.Vehicle;
 
 /**
  * Description
@@ -6,7 +9,7 @@ package com.javatools.javatools.proxy;
  * Date 2021/1/24 1:05
  * Created by kwz
  */
-public class ProxyExample {
+public class JdkProxyExample {
 
     public static void main(String[] args) {
         JDKProxy jdkProxy = new JDKProxy();
