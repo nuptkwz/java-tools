@@ -45,7 +45,7 @@ public class Cache {
     public Cache(int maxSize) {
         this.maxSize = maxSize;
         cacheMap = new HashMap<>();
-        list= new ArrayList<>();
+        list = new ArrayList<>();
         size = 0;
     }
 
@@ -88,8 +88,12 @@ public class Cache {
         Node oldNode = headNode.next;
         headNode.next = node;
         node.pre = headNode;
-        node.next=oldNode;
+        node.next = oldNode;
         headNode.pre = node;
+    }
+
+    private void delete(Node node) {
+
     }
 
     public static void main(String[] args) {
