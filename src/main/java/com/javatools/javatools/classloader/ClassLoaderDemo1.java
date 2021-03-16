@@ -11,7 +11,7 @@ import sun.net.spi.nameservice.dns.DNSNameService;
 public class ClassLoaderDemo1 {
 
     public static void main(String[] args) {
-        testExtensionLoader();
+        testParentalAppointment();
     }
 
     /**
@@ -42,5 +42,18 @@ public class ClassLoaderDemo1 {
         ClassLoader appClassLoader = ClassLoaderDemo1.class.getClassLoader();
         //appClassLoader:sun.misc.Launcher$AppClassLoader@14dad5dc
         System.out.println("appClassLoader:" + appClassLoader);
+    }
+
+    /**
+     * 双亲委派机制测试
+     */
+    private static void testParentalAppointment() {
+        ClassLoader classLoader = ClassLoaderDemo1.class.getClassLoader();
+        while (classLoader != null) {
+            //one:sun.misc.Launcher$AppClassLoader@14dad5dc
+            //one:sun.misc.Launcher$ExtClassLoader@27082746
+            System.out.println("one:" + classLoader);
+            classLoader = classLoader.getParent();
+        }
     }
 }
