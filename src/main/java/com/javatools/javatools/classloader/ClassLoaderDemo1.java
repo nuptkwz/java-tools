@@ -4,6 +4,7 @@ import sun.net.spi.nameservice.dns.DNSNameService;
 
 /**
  * Description
+ * 演示了BootstrapClassLoader、ExtensionLoader、AppClassLoader三种内置的加载器
  * Date 2021/3/15 23:44
  * Created by kwz
  */
@@ -18,9 +19,10 @@ public class ClassLoaderDemo1 {
      * <JAVA_HOME>\jre\lib，处于安全考虑，根类加载器只加载java、javax、sun开头的类
      */
     private static void testBootstrapClassLoader() {
-        ClassLoader classLoader = Object.class.getClassLoader();
+        ClassLoader bootstrapClassLoader = Object.class.getClassLoader();
         //打印出来的为null，这是因为它使用了根类加载器（Bootstrap）
-        System.out.println(classLoader);
+        //bootstrapClassLoader:null
+        System.out.println("bootstrapClassLoader:" + bootstrapClassLoader);
     }
 
     /**
@@ -28,15 +30,17 @@ public class ClassLoaderDemo1 {
      * 扩展类加载器负责加载<JAVA_HOME>\jre\lib\ext目录下的类库或者系统变量"java.ext.dirs"指定的目录下的类库
      */
     private static void testExtensionLoader() {
-        ClassLoader classLoader = DNSNameService.class.getClassLoader();
-        System.out.println(classLoader);
+        ClassLoader extensionClassLoader = DNSNameService.class.getClassLoader();
+        //extensionClassLoader:sun.misc.Launcher$ExtClassLoader@46f5f779
+        System.out.println("extensionClassLoader:" + extensionClassLoader);
     }
 
     /**
      * 系统类加载器又称为应用类加载器(System classloader 或者Application classloader)
-     *
      */
     private static void testAppClassLoader() {
-
+        ClassLoader appClassLoader = ClassLoaderDemo1.class.getClassLoader();
+        //appClassLoader:sun.misc.Launcher$AppClassLoader@14dad5dc
+        System.out.println("appClassLoader:" + appClassLoader);
     }
 }
