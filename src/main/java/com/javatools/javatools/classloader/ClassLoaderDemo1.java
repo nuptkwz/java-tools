@@ -2,6 +2,8 @@ package com.javatools.javatools.classloader;
 
 import sun.net.spi.nameservice.dns.DNSNameService;
 
+import java.io.File;
+
 /**
  * Description
  * 演示了BootstrapClassLoader、ExtensionLoader、AppClassLoader三种内置的加载器
@@ -11,7 +13,10 @@ import sun.net.spi.nameservice.dns.DNSNameService;
 public class ClassLoaderDemo1 {
 
     public static void main(String[] args) {
-        testParentalAppointment();
+
+        String url = "http://baidu.com.cn/124457";
+        String[] split = url.split(File.separator);
+        System.out.println(split);
     }
 
     /**
