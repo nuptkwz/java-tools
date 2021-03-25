@@ -32,6 +32,7 @@ public class MyFileClassLoader extends ClassLoader {
     protected Class<?> findClass(String name) throws ClassNotFoundException {
         try {
             //1.把类名转换成目录
+
             String file = directory + File.separator + name.replace(".", File.separator)
                     + ".class";
             //构建输入流
