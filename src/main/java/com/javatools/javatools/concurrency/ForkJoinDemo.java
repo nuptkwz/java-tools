@@ -16,5 +16,6 @@ public class ForkJoinDemo {
         long sum = LongStream.rangeClosed(0L, 10_000_000L).parallel().reduce(0, Long::sum);
         long end = System.currentTimeMillis();
         System.out.println("sum=" + sum + "时间：" + (end - start));
+        System.out.println();
     }
 }
