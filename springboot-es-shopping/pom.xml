@@ -15,6 +15,8 @@
     <description>springboot-es-shopping project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
+        <!--自定义es版本依赖，保持和本地一致，2.2.5对应的es版本6.8.6-->
+        <elasticsearch.version>7.6.1</elasticsearch.version>
     </properties>
     <dependencies>
         <dependency>
