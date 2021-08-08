@@ -1,0 +1,8 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: spring-character
+# 关闭 thymeleaf的缓存
+  thymeleaf:
+    cache: false
