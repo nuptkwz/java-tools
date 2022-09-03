@@ -12,7 +12,6 @@ import org.apache.commons.lang3.tuple.Triple;
 public class Main {
 
     public static void main(String[] args) {
-
         System.out.println(testTriple());
     }
 
