@@ -6,17 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springboot-es-shopping" />
+        <module name="easy-excel" />
         <module name="java-tool" />
+        <module name="springboot-es-shopping" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="easy-excel" target="1.8" />
       <module name="java-tool" target="1.8" />
       <module name="springboot-es-shopping" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="easy-excel" options="-parameters" />
       <module name="java-tool" options="-parameters" />
       <module name="springboot-es-shopping" options="-parameters" />
     </option>

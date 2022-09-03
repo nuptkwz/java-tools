@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/easy-excel/easy-excel.iml" filepath="$PROJECT_DIR$/easy-excel/easy-excel.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-tool/java-tool.iml" filepath="$PROJECT_DIR$/java-tool/java-tool.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-tools.iml" filepath="$PROJECT_DIR$/.idea/java-tools.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-es-shopping/springboot-es-shopping.iml" filepath="$PROJECT_DIR$/springboot-es-shopping/springboot-es-shopping.iml" />
