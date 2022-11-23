@@ -14,7 +14,8 @@ import java.util.concurrent.ExecutionException;
 public class CompletableFutureDemo {
     public static void main(String[] args) {
 //        supplyAsyncThenAccept();
-        testCompletableFuture();
+//        testCompletableFuture();
+        completableFuturePlus();
     }
 
     private static void supplyAsyncThenAccept() {
@@ -41,27 +42,39 @@ public class CompletableFutureDemo {
 
         //异步任务有返回值，使用内部的线程池
         CompletableFuture<String> supplyAsyncFuture = CompletableFuture.supplyAsync(() -> doSomethingWithReturn("开始淘米", "得到干净的米"));
-
-        //只要有一个完成，则完成，有一个抛出异常，则携带异常
-        CompletableFuture<Object> anyOfFeature = CompletableFuture.anyOf(runAsyncFuture, supplyAsyncFuture);
         try {
-            anyOfFeature.get();
+            //有异常则抛出，无限的等待
+            System.out.println("supplyAsyncFuture:" + supplyAsyncFuture.get());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
 
+        //只要有一个完成，则完成，有一个抛出异常，则携带异常
+        CompletableFuture.anyOf(runAsyncFuture, supplyAsyncFuture);
+
         // 等待所有的future全部完成才可以
-//        CompletableFuture<Void> future = CompletableFuture.allOf(runAsyncFuture, supplyAsyncFuture);
-//        try {
-//            future.get();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        } catch (ExecutionException e) {
-//            e.printStackTrace();
-//        }
+        CompletableFuture<Void> allOfFuture = CompletableFuture.allOf(runAsyncFuture, supplyAsyncFuture);
+        //不抛出异常，阻塞的等待
+        allOfFuture.join();
+
         System.out.println("hello main function");
+    }
+
+    /**
+     * 模拟completableFuture接续方式
+     */
+    private static void completableFuturePlus() {
+        CompletableFuture<String> supplyAsync = CompletableFuture.supplyAsync(() -> doSomethingWithReturn("打开电饭锅开关", "米"));
+        supplyAsync.thenAcceptAsync(result -> {
+            System.out.println("拿到" + result);
+            doSomething("开始煮米饭");
+        }).thenRunAsync(
+                () -> {
+                    System.out.println("可以吃饭了");
+                }
+        );
     }
 
     private static void doSomething(String doSomething) {
